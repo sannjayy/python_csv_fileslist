@@ -8,18 +8,14 @@ GitHub Repo: [https://github.com/sannjayy/python_export_file_info](https://githu
 ```
 from csv_filelist_generator import FileListGenerator
 ```
-
 ---
-**Full Code Example:**
+**Minimal Code Example:**
 ```
 from python_export_file_info import FileListGenerator
-scan_folder_path = r"C:\Users\sannjayy\Desktop"
-folder = FileListGenerator(scan_folder_path)
-folder.filter_extensions = ('.mp4', '.mp3')
-folder.generate(monitor=True, filename='pyfiles.csv')
-```
 
-To Filter by Extensions: `folder.filter_extensions = ('.mp4', '.mp3')` must be a *tuple or list.*
+myfolder = FileListGenerator(folder='/home/')
+myfolder.generate()
+```
 
 ---
 
@@ -36,6 +32,18 @@ To Filter by Extensions: `folder.filter_extensions = ('.mp4', '.mp3')` must be a
 - Default Output Folder: **output/** *[In Project Root]*
 
 ---
+
+**Full Code Example:**
+```
+from python_export_file_info import FileListGenerator
+
+scan_folder_path = r"C:\Users\sannjayy\Desktop"
+myfolder = FileListGenerator(scan_folder_path)
+myfolder.filter_extensions = ('.mp4', '.mp3') 
+myfolder.generate(monitor=True, filename='pyfiles.csv')
+```
+
+To Filter Files by Extensions [*Optional*]: `folder.filter_extensions = ('.mp4', '.mp3', '.jpg')`.
 
 **DEMO OUTPUT:**
 
