@@ -45,6 +45,8 @@ myfolder.generate(monitor=True, filename='pyfiles.csv')
 
 To Filter Files by Extensions [*Optional*]: `folder.filter_extensions = ('.mp4', '.mp3', '.jpg')`.
 
+---
+
 **DEMO OUTPUT:**
 
 Here is the exported demo file structure.
