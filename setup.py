@@ -8,10 +8,9 @@ long_description = (base / "README.md").read_text(encoding="utf-8")
 classifiers = [
   'Development Status :: 5 - Production/Stable',
   'Intended Audience :: Developers',
-  "Topic :: Software Development :: Build Tools",
+  "Topic :: Software Development :: Libraries :: Python Modules",
   'Operating System :: OS Independent',
   'License :: OSI Approved :: MIT License',
-  "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3.7",
   "Programming Language :: Python :: 3.8",
   "Programming Language :: Python :: 3.9",
@@ -20,8 +19,8 @@ classifiers = [
  
 setup(
   name='python_export_file_info',
-  version='0.0.4',
-  description='CSV Files List Generator from Folders and Subfolders',
+  version='0.0.5',
+  description='CSV File Info List Generator from Folders and Subfolders',
   long_description=long_description,
   long_description_content_type="text/markdown",
   url='https://github.com/sannjayy/python_export_file_info',  
@@ -29,7 +28,7 @@ setup(
   author_email='hello@znas.in',
   license='MIT', 
   classifiers=classifiers,
-  keywords='python, export, fileinfo', 
+  keywords='python, export, file info, csv', 
   packages=find_packages(where="src"),
   python_requires=">=3.7, <4",   
   package_dir={'':'src'},

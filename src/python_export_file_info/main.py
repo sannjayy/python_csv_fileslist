@@ -7,13 +7,12 @@ class FileListGenerator:
     base_path = os.path.dirname(sys.modules['__main__'].__file__)
     def __init__(self, folder = base_path,  output_path='output/'):
         self.scan_dir = folder
-        self.output_path = output_path
+        self.output_path = f'{output_path.strip("/")}/' 
         self.output_file_name = ''
         self.filter_extensions = None
 
-    def write_to_csv(self, filename, path='output/'):
-        self.output_file_name = filename
-        self.output_path = path
+    def write_to_csv(self, filename):
+        self.output_file_name = filename if filename.endswith('.csv') else f'{filename}.csv'
         file_path = self.output_path + self.output_file_name
 
         # IF OUTPUT FOLDER NOT CREATED
@@ -27,7 +26,7 @@ class FileListGenerator:
 
         self.f=open(file_path, 'r+')
         self.w=csv.writer(self.f, lineterminator='\n')
-        self.w.writerow(['id', 'name', 'ext', 'size', 'file', 'crc32', 'sha1', 'md5', 'updated_at', 'created_at'])   
+        self.w.writerow(['id', 'name', 'ext', 'size', 'file', 'crc32', 'sha1', 'md5', 'updated_at', 'created_at'])
         return self.w
 
     def generate(self, filename='exported_list.csv', file_prefix=None, monitor=False, index=True):

@@ -1,9 +1,11 @@
-## CSV Files List Generator from Folders and Subfolders
+## CSV File Info List Generator from Folders and Subfolders
+Export file's informations from Didirectory rectory and subdirectory with process monitor. 
+
+Currently only **.csv** format supported for output/export.
+
 GitHub Repo: [https://github.com/sannjayy/python_export_file_info](https://github.com/sannjayy/python_export_file_info)
 ### Installaion
-
 Do the following in your virtualenv:
-
 
 `pip install python-export-file-info`
 
@@ -32,7 +34,7 @@ myfolder.generate()
 | **index** | True | True / False | Add ID column.|
 | **file_prefix** | None | *any* | Prefix of `file` column.|
 
-- After the name **.csv** extension is required*.
+- After the name **.csv** extension is optional.
 
 - /dir/myfile.mp3 `file_prefix='new/sub/'` new/sub/dir/myfile.mp3
 
