@@ -1,5 +1,5 @@
 ## CSV File Info List Generator from Folders and Subfolders
-Export file's informations from Didirectory rectory and subdirectory with process monitor. 
+Export files information from directory and subdirectory with process monitor. 
 
 Currently only **.csv** format supported for output/export.
 
@@ -33,11 +33,10 @@ myfolder.generate()
 | **filename** | exported_list.csv | *any* **.csv** | Output CSV Filename.|
 | **index** | True | True / False | Add ID column.|
 | **file_prefix** | None | *any* | Prefix of `file` column.|
+| **remove_non_ascii** | False | True / False | Remove Non ASCII Characters from File Name |
 
-- After the name **.csv** extension is optional.
-
-- /dir/myfile.mp3 `file_prefix='new/sub/'` new/sub/dir/myfile.mp3
-
+- `remove_non_ascii` may unable to find your files.
+- /dir/myfile.mp3 > `file_prefix='new/sub/'` > new/sub/dir/myfile.mp3
 - Default Output Folder: **output/** *[In Project Root]*.
 
 ---

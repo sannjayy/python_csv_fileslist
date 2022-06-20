@@ -19,7 +19,7 @@ classifiers = [
  
 setup(
   name='python_export_file_info',
-  version='0.0.5',
+  version='0.0.6',
   description='CSV File Info List Generator from Folders and Subfolders',
   long_description=long_description,
   long_description_content_type="text/markdown",

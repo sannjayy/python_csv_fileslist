@@ -1,7 +1,7 @@
 import os, datetime, csv, sys
 from py_essentials import hashing as hs
 from progress.bar import ShadyBar as Bar
-from .utils import crc32, convert_size, fileCount
+from .utils import crc32, convert_size, fileCount, remove_non_ansi_char
 
 class FileListGenerator:
     base_path = os.path.dirname(sys.modules['__main__'].__file__)
@@ -21,15 +21,15 @@ class FileListGenerator:
 
         # IF CSV FILE NOT CREATED
         if not os.path.isfile(file_path):            
-            with open(file_path, 'w+') as f:             
+            with open(file_path, 'w+', encoding='utf-8') as f:             
                 f.close()
 
-        self.f=open(file_path, 'r+')
+        self.f=open(file_path, 'r+', encoding='utf-8')
         self.w=csv.writer(self.f, lineterminator='\n')
         self.w.writerow(['id', 'name', 'ext', 'size', 'file', 'crc32', 'sha1', 'md5', 'updated_at', 'created_at'])
         return self.w
 
-    def generate(self, filename='exported_list.csv', file_prefix=None, monitor=False, index=True):
+    def generate(self, filename='exported_list.csv', file_prefix=None, monitor=False, index=True, remove_non_ascii=False):
         if monitor:
             self.bar = Bar('Processing (%(index)d/%(max)d)', max=fileCount(self.scan_dir, allowed_extensions=self.filter_extensions), suffix='%(percent).0f%%  [Remaining: %(eta)ds]' )
 
@@ -61,10 +61,10 @@ class FileListGenerator:
 
                     csv.writerow([
                         count if index else '',
-                        file_name, 
+                        remove_non_ansi_char(file_name) if remove_non_ascii else file_name,
                         file_ext,
                         convert_size(file_size), 
-                        file_new_path, 
+                        remove_non_ansi_char(file_new_path) if remove_non_ascii else file_new_path, 
                         file_hash_crc32, 
                         file_hash_sh1, 
                         file_hash_md5,                        

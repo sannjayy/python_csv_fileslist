@@ -1,4 +1,7 @@
-import os, math, zlib
+import os, math, zlib, re
+
+def remove_non_ansi_char(string):
+    return re.sub(r'[^\x00-\x7f]', "", string).replace(',', '').strip()
 
 
 def convert_size(size_bytes):
